@@ -26,6 +26,10 @@ avr-size --mcu=attiny85 -C main.elf
 avrdude -p attiny85 -c usbasp -U flash:w:main.hex:a
 ``` 
 
+__cheatsheet__
+* list supported uController: `avrdude -p?`
+* check connection between programmer (e.g. USBasp, AVRISP, ...): `avrdude -p attiny85 -c usbasp` or `avrdude -p t85 -c usbasp`
+
 ## ESP32 (M5Stack)
 * ESP32 is implemented in M5Stack
 * Espressif ESP32 is the successor of Espressif ESP8266
