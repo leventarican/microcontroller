@@ -46,6 +46,37 @@ __cheatsheet__
 * list supported uController: `avrdude -p?`
 * check connection between programmer (e.g. USBasp, AVRISP, ...): `avrdude -p attiny85 -c usbasp` or `avrdude -p t85 -c usbasp`
 
+__electricity__
+* power-bus in breadboard (+ and - lines)
+* red cable is +
+* black cable is -
+* integrated circuit (IC) = chips comes with DIP (dual in-line package) for the middle gab in breadboard
+
+__Atmel ATTiny85__
+
+```
+Reset	1	8	VCC (5V)
+		2	7	SCK
+		3	6	MISO
+GND		4	5	MOSI
+```
+
+__Serial Peripheral Interface__
+* SCK: Serial Clock
+* MOSI: Master Output Slave Input
+* MISO: Master Input Slace Output
+
+__USB to TTL Serialadapter__
+* check connection with `dmesg`
+* connect with `minicom`
+* convert TTL logic to RS232
+* USB serial converter
+
+__ISP AVR__
+* 10 or 6 pins
+* In System Programming
+* use with: `avrdude -p attiny85 -c avrispmkII`
+
 ## ESP32 (M5Stack)
 * ESP32 is implemented in M5Stack
 * Espressif ESP32 is the successor of Espressif ESP8266
