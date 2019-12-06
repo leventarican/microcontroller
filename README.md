@@ -1,13 +1,9 @@
 # microcontroller
 
-## Elektronik
-* Transistor
-* Kondensator
-    * Wiki: _Blockkondensator (auch Abblockkondensator, Stützkondensator oder Siebkondensator) bezeichnet in der Elektrotechnik einen Kondensator, der in einer Schaltung die Betriebsspannung an lokalen Schaltkreisen aufrechterhält._
-
-## AVR
+## AVR: ATtiny85
 __tools__
 * dmesg: list kernel ring buffer
+* lsusb: list usb devices
 
 * avrdude: for programmer, transfer code from computer to microcontroller
 * gcc-avr: compiler for AVR
@@ -17,7 +13,14 @@ _optional tools_
 * binutils-avr: tools like assembler, linker
 * gdb-avr: debugger for 
 
-__compile, build and flash__
+### example: main.c
+
+* Step 1: we need to bring our program to uC (microcontroller)
+* Step 2: run the uC
+
+__Step 1: compile, build and flash__
+
+In order to bring our program to the uC we need a elf format. To be short. These are the steps for it: 
 ```
 avr-gcc -mmcu=attiny85 -Os -c main.c  -o main.o
 avr-gcc main.o -o main.elf
@@ -25,6 +28,19 @@ avr-objcopy -O ihex -j .text -j .data main.elf main.hex
 avr-size --mcu=attiny85 -C main.elf 
 avrdude -p attiny85 -c usbasp -U flash:w:main.hex:a
 ``` 
+
+The connection between the computer and microcontroller is done with a programmer. In my case its a _USBasp_. For more: https://fischl.de/.
+
+Usually the _USBasp_ will have a ISP 10 pin cable witch is wired to the relevant pins in ATtiny85.
+
+_AVRISP mkII_ is also a good choice. It's just hard to find a original one and its expensive. You also have to extra power you uC.
+
+__Step 1: running__
+After flashing process the program is loaded into the ATtiny85. Wire a circuit with a led to PIN 5 on ATtiny85 and power it up.
+
+__circuit__
+* the led will glow every 500ms with flashed main.c example
+![](main-sketch.png)
 
 __cheatsheet__
 * list supported uController: `avrdude -p?`
