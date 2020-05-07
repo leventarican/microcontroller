@@ -1,17 +1,24 @@
 # microcontroller
 
+## RIOT-OS
+* an OS for IoT
+* runs on ARM, ESP32, ESP8266, ...
+* https://github.com/RIOT-OS/RIOT
+* 
+
+### setup VirtualBox Image for RIOT development
+* https://github.com/RIOT-OS/RIOT/wiki/Howto%3A-Create-a-VirtualBox-Image-for-RIOT-development
+
 ## AVR: ATtiny85
 __tools__
 * dmesg: list kernel ring buffer
 * lsusb: list usb devices
-
 * avrdude: for programmer, transfer code from computer to microcontroller
 * gcc-avr: compiler for AVR
 * avr-libc: AVR C library
-
-_optional tools_
-* binutils-avr: tools like assembler, linker
-* gdb-avr: debugger for 
+* _optional tools_
+    * binutils-avr: tools like assembler, linker
+    * gdb-avr: debugger for 
 
 ### example: main.c
 
